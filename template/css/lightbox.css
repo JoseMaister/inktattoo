@@ -1,0 +1,207 @@
+.auto-slider{
+    
+    box-sizing: content-box;
+    display: inline-block;
+    padding: 10px 10px 20px;
+    background: #fff;
+    max-width: 720px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+
+@keyframes sliding{
+            0%{left: 0%; }
+            20%{left: -100%;}
+            40%{left: -200%;}
+            60%{left: -300%;}
+            80%{left: -400%;}
+            100%{left: 0%;}
+        }        
+        
+@keyframes indicating{
+            from{
+                left: -100%;
+            }
+            to{
+                left: 0;
+            }
+}  
+        
+        
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 25s sliding ease infinite; 
+}
+
+/* Slider indicator */
+.indicator{
+    width: 100%;
+    max-width: 720px;
+    height: 6px;
+    background: #2e2d2d;
+    position: absolute;
+    bottom: 0;
+    animation: indicating 5s ease infinite; 
+    
+}
+/* ******************************************************
+    Author URI: https://codeconvey.com/
+    Demo Purpose Only - May not require to add.
+    font-family: "Raleway",sans-serif;
+*********************************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+
+
+
+/* ******************************************************
+    Script Top
+*********************************************************/
+
+.ScriptTop {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    font-size: 0.69em;
+    font-weight: 600;
+    line-height: 2.2;
+    padding: 12px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+
+
+/* ******************************************************
+    Script Header
+*********************************************************/
+
+.ScriptHeader {
+    float: left;
+    width: 100%;
+    padding: 2em 0;
+}
+.rt-heading {
+    margin: 0 auto;
+    text-align:center;
+}
+.Scriptcontent{
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+
+
+
+
+/* ******************************************************
+    Live Demo
+*********************************************************/
+
+
+
+
+
+/* ******************************************************
+    Responsive Grids
+*********************************************************/
+
+
+
+.rt-row:before, .rt-row:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.rt-row:after {
+  clear: both;
+}
+[class^="col-rt-"] {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  padding: 0 15px;
+  min-height: 1px;
+  position: relative;
+}
+
+
+@media (min-width: 768px) {
+  .rt-container {
+    width: 750px;
+  }
+  [class^="col-rt-"] {
+    float: left;
+    width: 49.9999999999%;
+  }
+  .col-rt-6, .col-rt-12 {
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+    .rt-container {
+        width: 1170px;
+    }
+    .col-rt-1 {
+        width:16.6%;
+    }
+    .col-rt-2 {
+        width:30.33%;
+    }
+    .col-rt-3 {
+        width:50%;
+    }
+    .col-rt-4 {
+        width: 67.664%;
+    }
+    .col-rt-5 {
+        width: 83.33%;
+    }
+    
+
+}
+
+@media only screen and (min-width:240px) and (max-width: 768px){
+     .ScriptTop h1, .ScriptTop ul {
+        text-align: center;
+    }
+    .ScriptTop h1{
+        margin-top:0;
+        margin-bottom:15px;
+    }
+    .ScriptTop ul{
+         margin-top:12px;       
+    }
+    
+    .ScriptHeader h1,
+    .ScriptHeader h2, 
+    .scriptnav ul{
+        text-align:center;  
+    }
+    .scriptnav ul{
+         margin-top:12px;       
+    }
+    #float-right{
+        float:none; 
+    }
+    
+}
+
+
+
+
