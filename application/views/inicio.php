@@ -14,160 +14,122 @@
   <link href="<?= base_url("template/css/responsive.css")?>" rel="stylesheet" />
 
     <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Best Tattoos
-                    </h1>
-                    <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                    </p>
-                    <div class="-">
-                      <a href="" class="">
-                        Read More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-5 col-lg-6">
-                  <div class="img-box col-lg-10 mx-auto px-0">
-                    <img src="<?= base_url("template/images/mont.png")?>" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Best Tattoos
-                    </h1>
-                    <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Read More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-5 col-lg-6">
-                  <div class="img-box col-lg-10 mx-auto px-0">
-                    <img src="<?= base_url("template/images/mont.png")?>" alt="">
-                  </div>
+
+<!-- end slider section -->
+<section class="slider_section ">
+  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <?php 
+      foreach($slides->result() as $item) {
+        $active=null;
+        if($item->id=='1'){
+          $active='active';
+        }
+        ?>
+
+      <div class="carousel-item <?= $active ?>">
+        <div class="container">
+              <?php
+                if (isset($this->session->id))
+                {
+              ?>
+              <a href=<?= base_url("admin/admin/".$item->id); ?>><button type="button"class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Admin </button></a>
+              <a href=<?= base_url("admin/edit/".$item->id); ?>><button type="button"class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Editar </button></a>
+              <?php 
+                 }
+              ?>
+          <div class="row">
+            <div class="col-md-7 col-lg-6 ">
+              <div class="detail-box">
+                <h1>
+                  <?php 
+                    echo $item->tittle
+                  ?>
+                </h1>
+                <p>
+                  <?php 
+                    echo $item->content
+                  ?>
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1">
+                    Read More
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Best Tattoos
-                    </h1>
-                    <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Read More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-5 col-lg-6">
-                  <div class="img-box col-lg-10 mx-auto px-0">
-                    <img src="<?= base_url("template/images/mont.png")?>" alt="">
-                  </div>
+              <div class="col-md-5 col-lg-6">
+                <div class="img-box col-lg-10 mx-auto px-0">
+                  <img src="<?= 'data:image/bmp;base64,' . base64_encode($item->img); ?>" alt="">
                 </div>
               </div>
-            </div>
           </div>
         </div>
-        <div class="container">
+      </div>
+      <?php
+    }?>
+    </div>
+    <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#customCarousel1" data-slide-to="1"></li>
             <li data-target="#customCarousel1" data-slide-to="2"></li>
           </ol>
-        </div>
-      </div>
+        </div>    
+  </div>
+</section>
 
-    </section>
-    <!-- end slider section -->
-  
-
-  <!-- service section -->
+<!-- service section -->
 
   <section class="service_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
+        <?php  
+          $item=$data[3];
+        ?>
         <h2>
-          What We Do
+          <?php 
+            echo $item->intro_text
+          ?>
         </h2>
       </div>
       <div class="row">
+      <?php 
+      foreach($content->result() as $item) {
+      ?>
         <div class="col-md-4">
           <div class="box">
+            <?php
+              if (isset($this->session->id))
+                 {
+              ?>
+              <a href=<?= base_url("admin/admin/".$item->id); ?>><button type="button"class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Admin </button></a>
+              <a href=<?= base_url("admin/edit/".$item->id); ?>><button type="button"class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Editar </button></a>
+              <?php 
+                 }
+              ?>
             <div class="img-box">
-              <img src="<?= base_url("template/images/s1.png")?>" alt="">
+              <img src="<?= 'data:image/bmp;base64,' . base64_encode($item->img); ?>" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                Tattooing
+                <?php 
+                    echo $item->tittle
+                ?>
               </h5>
               <p>
-                Odio vero voluptatibus excepturi in, dolor neque nesciunt reiciendis saepe veniam, pariatur fuga, nam voluptatum minima id? Quod omnis nisi.
+                <?php 
+                  echo $item->content
+                ?>
               </p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="<?= base_url("template/images/s2.png")?>" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Piercing
-              </h5>
-              <p>
-                Odio vero voluptatibus excepturi in, dolor neque nesciunt reiciendis saepe veniam, pariatur fuga, nam voluptatum minima id? Quod omnis nisi.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="<?= base_url("template/images/s3.png")?>" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Tattoo Design
-              </h5>
-              <p>
-                Odio vero voluptatibus excepturi in, dolor neque nesciunt reiciendis saepe veniam, pariatur fuga, nam voluptatum minima id? Quod omnis nisi.
-              </p>
-            </div>
-          </div>
-        </div>
+         <?php  
+      }?>
       </div>
     </div>
   </section>
-
   <!-- end service section -->
 
     <!-- jQery -->

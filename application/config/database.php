@@ -80,29 +80,7 @@ $db['default'] = array(
 	/*'hostname' => '192.168.6.13',
 	'username' => 'jose',
 	'password' => 'masmetro',*/
-	'database' => 'masmetro',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => TRUE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
-
-$db['second'] = array(
-	'dsn'	=> '',
-	'hostname' => '192.168.6.13',
-	'username' => 'AleksOrtiz',
-	'password' => 'masmetrolog14',
-	'database' => 'mlsystemdb',
+	'database' => 'inktattoo',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,

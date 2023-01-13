@@ -14,26 +14,38 @@
   <link href="<?= base_url("template/css/responsive.css")?>" rel="stylesheet" />
 </div>
  <section class="about_section layout_padding">
+  <?php
+    $item=$data[6];
+  ?>
     <div class="container">
-
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="<?= base_url("template/images/1.png")?>" alt="">
+            <img src="<?= 'data:image/bmp;base64,' . base64_encode($item->img); ?>" alt="">
           </div>
         </div>
         <div class="col-md-6">
+          <?php
+            if (isset($this->session->id))
+             {
+          ?>
+          <a href=<?= base_url("admin/admin/".$item->id); ?>><button type="button"class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Admin </button></a>
+          <a href=<?= base_url("admin/edit/".$item->id); ?>><button type="button"class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i> Editar </button></a>
+          <?php 
+             }
+          ?>
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                About Us
+                <?php 
+                  echo $item->tittle
+                ?>
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              <?php 
+                echo $item->content
+              ?>
             </p>
             <a href="">
               Read More

@@ -39,13 +39,31 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+              <?php 
+               $act='';
+                if($active=='inicio'){
+                  $act='active';
+                }
+              ?>
+              <li class="nav-item <?=$act?>">
                 <a class="nav-link" href="<?= base_url()?>">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
+              <?php 
+               $act='';
+                if($active=='about'){
+                  $act='active';
+                }
+              ?>
+              <li class="nav-item <?=$act?>">
                 <a class="nav-link" href="<?= base_url('inicio/about')?>"> About</a>
               </li>
-              <li class="nav-item">
+              <?php 
+               $act='';
+                if($active=='gallery'){
+                  $act='active';
+                }
+              ?>
+              <li class="nav-item <?=$act?>">
                 <a class="nav-link" href="<?= base_url('inicio/gallery')?>">Gallery</a>
               </li>
             </ul>

@@ -45,7 +45,7 @@ else
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="password">
+        <input type="password" id="password" name="pass" placeholder="password">
       </div>
       <div>
         <input class="button" type="submit" value="Sign In">

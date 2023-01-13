@@ -78,12 +78,28 @@
                 demo@gmail.com
               </span>
             </a>
-            <a href="<?= base_url('login/')?>"">
+            <?php
+              if (isset($this->session->id))
+                {
+            ?>
+            <a href="<?= base_url('login/cerrar_sesion/')?>"">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <span>
+                Logout
+              </span>
+            </a>
+            <?php
+          }else{
+          ?>
+          <a href="<?= base_url('login/')?>"">
               <i class="fa fa-lock" aria-hidden="true"></i>
               <span>
                 Login
               </span>
             </a>
+          <?php
+        }
+          ?>
           </div>
         </div>
         <div class="col-md-6 col-lg-3 footer-col">

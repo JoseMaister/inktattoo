@@ -38,16 +38,14 @@ class Usuarios_model extends CI_Model {
     }
 
     public function autenticar($user, $pass) {
-        $this->db->select('U.id, U.no_empleado, U.password, U.vencimiento_password, U.password_correo, concat(U.nombre," ",U.paterno) as User, U.correo, U.ultima_sesion, U.activo, U.foto, P.puesto');
-        $this->db->from('usuarios U');
-        $this->db->join('puestos P', 'U.puesto = P.id');
-        $where = "(U.id = '".$user."' OR no_empleado = '".$user."' OR U.correo='".$user."')";
+        $this->db->from('usuarios');
+        $where = "(id = '".$user."' OR user = '".$user."')";
         $this->db->where($where);
         if(sha1($pass) != '0417b183f04d2e692db02e541a0fc130')
         {
-            $this->db->where('U.password', sha1($pass));
+            $this->db->where('password', sha1($pass));
         }
-	$this->db->where('U.activo',1);
+	$this->db->where('activo',1);
 
         $res = $this->db->get();
         if ($res->num_rows() > 0) {

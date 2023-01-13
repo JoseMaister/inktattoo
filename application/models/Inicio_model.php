@@ -9,17 +9,37 @@ class Inicio_model extends CI_Model {
         $this->load->database();
     }
 
-    function confirmarDatos($id, $datos){
-      $this->db->where('id', $id);
-      $this->db->set('fecha_alta', 'current_timestamp()', FALSE);
-      $this->db->set('ultima_sesion', 'current_timestamp()', FALSE);
-      if ($this->db->update('usuarios', $datos)) {
-          return true;
-      } else {
-          return false;
-      }
+    function getData(){        
+        $this->db->from('pagina');
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return FALSE;
+        }
     }
-
+    function getDataCarrusel($data){        
+        $this->db->from('pagina');
+        $this->db->where('category', $data);
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
+    function getDataContent(){        
+        $this->db->from('pagina');
+        $this->db->where('category', 'content');
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
 }
-
 ?>
